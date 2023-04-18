@@ -1,12 +1,3 @@
----
-title: Proxmox automatic storage backups with Sanoid, cv4pve, and PBS2
-author: Marcus Holtz
-date: 2022-10-11 11:33:00 -0700
-categories: [Proxmox, ProxmoxStorage]
-tags: [virtualization, proxmox, storage, backups, persistance]
-image:
-  path: /commons/devices-mockup.png
----
 # Automating storage backups with Proxmox
 Proxmox offers many solutions for backups. This write-up specifically addresses ZFS based storage systems. 
 
