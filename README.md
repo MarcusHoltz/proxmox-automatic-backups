@@ -4,6 +4,11 @@ Proxmox offers many solutions for backups. This write-up specifically addresses 
 Using Sanoid, cv4pve, and PBS2 we're able to take snapshots of both the Virtual Machines as well as the data on our ZFS Pools. Allowing a complete backup of the whole system, not just a VM and some QCOW2 disks.
 
 
+> - **cv4pve-autosnap** - [Proxmox VM automatic backup and retention](autosnap-stuff/)
+> - **PBS2 Client** - [Proxmox Backup Server 2 automated backups](backup-stuff/)
+> - **Sanoid** - [Sanoid logging and configuration file](sanoid-stuff/)
+
+
 
 * * *
 ## cv4pve-autosnap
