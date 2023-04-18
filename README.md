@@ -12,13 +12,16 @@ Using Sanoid, cv4pve, and PBS2 we're able to take snapshots of both the Virtual 
 
 * * *
 ## cv4pve-autosnap
-[cv4pve-autosnap](https://github.com/Corsinvest/cv4pve-autosnap) allows for the management of VM snapshots.
+[cv4pve-autosnap](https://github.com/Corsinvest/cv4pve-autosnap) allows for the management of VM snapshots. Automatic snapshot for Proxmox VE with retention. Cv4pve works outside the Proxmox VE host using the API.
+
 
 You assign a label to your snapshot and then a keep number.
 
 So each label will only keep as many as the keep number.
 
 This is intended for say, tag = daily; keep = 7   /or/    tag = weekly; keep 4
+
+
 
 
 * * *
@@ -31,19 +34,25 @@ This is intended for say, tag = daily; keep = 7   /or/    tag = weekly; keep 4
 
 * * *
 ## Proxmox Backup Client snapshot ZFS Volumes
-[proxmox-backup-client](https://pbs.proxmox.com/docs/backup-client.html) is the  command line client for Proxmox Backup Server. It takes a list of backup specifications, which include the archive name on the server, the type of the archive, and the archive source at the client. 
+[proxmox-backup-client](https://pbs.proxmox.com/docs/backup-client.html) is the command line client for Proxmox Backup Server. It takes a list of backup specifications, which include the archive name on the server, the type of the archive, and the archive source at the client. 
+
 
 With this tool you gain the features of Proxmox Backup Server 2 with anything you like. It will appear in the GUI just like it was a VM backup. Incremental and browsable. 
 
-This is a great tool, especially if you have multiple Proxmox enviornments that need to share specific backups. 
+This very helpful, especially if you have multiple Proxmox enviornments that need to share specific backups. 
 
-In this example, I have 4 different snapshots being taken: appdata, cloud, faststore, and web
+
+
+* * * 
+### Example Setup 
+The example, in the link below, has 4 different snapshots being taken: appdata, cloud, faststore, and web
 
 Each one has a script for backups, based on how often they're executed. These are then combined with cron for execution of backups. 
 
 
+
 * * *
-**The config to set everything up with archiving logs and chronjobs are below:**
+**The config to set Proxmox Backup Server 2's Client up with archiving logs and chronjobs are below:**
 
 [Proxmox Backup Server 2 automated backups](backup-stuff/)
 * * *
@@ -65,6 +74,7 @@ There is a starting template you can use, or find the zip in Joplin below. To co
 `cp /usr/share/doc/sanoid/examples/sanoid.conf /etc/sanoid/`
 
 
+
 * * *
 #### Then, let's talk about how Sanoid starts. 
 We want to disable the installed cron, and let the systemd service manage it. 
@@ -80,6 +90,7 @@ Add this line to allow Sanoid to run every min, and run to your local timezone!!
 ` * * * * *  root TZ=/usr/share/zoneinfo/America/Denver /usr/sbin/sanoid --quiet --cron`
 
 But it's not nessesary to change crontab, as the systemd service handles everything on Debian.
+
 
 
 * * * 
