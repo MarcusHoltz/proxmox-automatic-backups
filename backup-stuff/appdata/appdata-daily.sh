@@ -1,0 +1,8 @@
+############# DAILY backups ######################
+### Crontab would look like this:
+#   39 23 * * * root /root/backup-stuff/appdata/appdata-daily.sh
+############# DAILY backups  ######################
+echo "### Daily backup began on $(date '+%a %b %d at %T')  ###" >> /root/backup-stuff/appdata/appdata-logs/daily-$(date "+%Y-%m").log
+# proxmox-backup-client backup appdata-rpool.pxar:/rpool/appdata --backup-id "appdata" >> /root/backup-stuff/appdata/appdata-logs/daily-$(date "+%Y-%m").log
+echo "### Daily backup ended at $(date '+%a %b %d at %T')  ###" >> /root/backup-stuff/appdata/appdata-logs/daily-$(date "+%Y-%m").log
+echo " " >> /root/backup-stuff/appdata/appdata-logs/daily-$(date "+%Y-%m").log

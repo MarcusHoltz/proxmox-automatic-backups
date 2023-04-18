@@ -1,0 +1,53 @@
+Hourly: 
+Snapshots: 	  :00
+Sanoid: 	  :05
+Appdata:	  :31
+Cloud:  	  :11
+Faststore:  	  :21
+Web:  		  :41
+
+
+Daily:
+Snapshots: 	23:35
+Sanoid: 	23:55
+Appdata: 	23:39
+Cloud:  	23:19
+Faststore:  	23:29
+Web:  		23:49
+
+
+Weekly:
+Snapshots: 	Thrs, 23:50
+Sanoid: 	Thrs, 23:30
+Appdata: 	Thrs, 23:33
+Cloud:  	Thrs, 23:13
+Faststore:  	Thrs, 23:23
+Web:  		Thrs, 23:43
+
+
+Monthly:
+Snapshots: 	10th, 23:20
+Sanoid: 	10th, 23:25
+Appdata: 	10th, 23:37
+Cloud:  	10th: 23:17
+Faststore:  	10th: 23:27
+Web:  		10th: 23:47
+
+
+Yearly:
+Snapshots:  	June 10th, 22:05
+Sanoid: 	June 10th, 22:10
+Appdata: 	June 10th, 22:34
+Cloud:  	June 10th: 22:14
+Faststore:  	June 10th: 22:24
+Web:  		June 10th: 22:44
+
+
+Archive: 
+Snapshots:  	10th, 22:50
+Sanoid:		10th, 23:58
+Appdata:  	10th, 23:50
+Cloud:  	10th, 23:35
+Faststore:  	10th: 23:48
+Web:  		10th: 23:51
+

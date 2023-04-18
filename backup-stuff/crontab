@@ -1,0 +1,73 @@
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+############ CRONTAB ###############
+  #Min   #Hour#DoM#Mon#DoW#Username#Command#
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+#
+  
+#sanoid  #sanoid  #sanoid  #sanoid  #sanoid  #sanoid  #sanoid  #sanoid  #sanoid
+  58      23   10  *   *    root   /root/sanoid-stuff/sanoid-archivelogs.sh
+#proxmox_autosnaphot  #proxmox_autosnaphot  #proxmox_autosnaphot  #proxmox_autosnaphot
+15,30,45  *    *   *   *    root   /root/autosnap-stuff/autosnap-15min.sh
+   0      *    *   *   *    root   /root/autosnap-stuff/autosnap-hourly.sh
+  35      23   *   *   *    root   /root/autosnap-stuff/autosnap-daily.sh
+  50      23   *   *   4    root   /root/autosnap-stuff/autosnap-weekly.sh
+  20      23   10  *   *    root   /root/autosnap-stuff/autosnap-monthly.sh
+   5      22   10  6   *    root   /root/autosnap-stuff/autosnap-yearly.sh
+  50      22   10  *   *    root   /root/autosnap-stuff/autosnap-archivelogs.sh
+
+#PBS_appdata  #PBS_appdata  #PBS_appdata  #PBS_appdata  #PBS_appdata  #PBS_appdata
+15,30,45  *    *   *   *    root   /root/backup-stuff/appdata/appdata-15min.sh
+   31     *    *   *   *    root   /root/backup-stuff/appdata/appdata-hourly.sh
+   39     23   *   *   *    root   /root/backup-stuff/appdata/appdata-daily.sh
+   33     23   *   *   4    root   /root/backup-stuff/appdata/appdata-weekly.sh
+   37     23   10  *   *    root   /root/backup-stuff/appdata/appdata-monthly.sh
+   34     22   10  6   *    root   /root/backup-stuff/appdata/appdata-yearly.sh
+   50     23   10  *   *    root   /root/backup-stuff/appdata/appdata-archivelogs.sh
+
+#PBS_cloud    #PBS_cloud   #PBS_cloud   #PBS_cloud   #PBS_cloud   #PBS_cloud   #PBS_cloud
+15,30,45  *    *   *   *    root   /root/backup-stuff/cloud/cloud-15min.sh
+  11      *    *   *   *    root   /root/backup-stuff/cloud/cloud-hourly.sh
+  19      23   *   *   *    root   /root/backup-stuff/cloud/cloud-daily.sh
+  13      23   *   *   4    root   /root/backup-stuff/cloud/cloud-weekly.sh
+  17      23   10  *   *    root   /root/backup-stuff/cloud/cloud-monthly.sh
+  14      22   10  6   *    root   /root/backup-stuff/cloud/cloud-yearly.sh
+  35      23   10  *   *    root   /root/backup-stuff/cloud/cloud-archivelogs.sh
+
+#PBS_faststore  #PBS_faststore  #PBS_faststore  #PBS_faststore  #PBS_faststore  #PBS_faststore
+15,30,45  *    *   *   *    root   /root/backup-stuff/faststore/faststore-15min.sh
+    21    *    *   *   *    root   /root/backup-stuff/faststore/faststore-hourly.sh
+    29    23   *   *   *    root   /root/backup-stuff/faststore/faststore-daily.sh
+    23    23   *   *   4    root   /root/backup-stuff/faststore/faststore-weekly.sh
+    27    23   10  *   *    root   /root/backup-stuff/faststore/faststore-monthly.sh
+    24    22   10  6   *    root   /root/backup-stuff/faststore/faststore-yearly.sh
+    48    23   10  *   *    root   /root/backup-stuff/faststore/faststore-archivelogs.sh
+
+#PBS_web   #PBS_web   #PBS_web   #PBS_web   #PBS_web   #PBS_web   #PBS_web   #PBS_web   #PBS_web   #PBS_web
+15,30,45  *    *   *   *    root   /root/backup-stuff/web/web-15min.sh
+   41     *    *   *   *    root   /root/backup-stuff/web/web-hourly.sh
+   49     23   *   *   *    root   /root/backup-stuff/web/web-daily.sh
+   43     23   *   *   4    root   /root/backup-stuff/web/web-weekly.sh
+   47     23   10  *   *    root   /root/backup-stuff/web/web-monthly.sh
+   44     22   10  6   *    root   /root/backup-stuff/web/web-yearly.sh
+   51     23   10  *   *    root   /root/backup-stuff/web/web-archivelogs.sh
